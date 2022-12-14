@@ -19,7 +19,6 @@ const PokemonList = () => {
   const [style, setStyle] = useState(null);
 
   useEffect(() => {
-    console.log("running");
     if (!isSidebarOpen) {
       setStyle({ width: "90%" });
       return;

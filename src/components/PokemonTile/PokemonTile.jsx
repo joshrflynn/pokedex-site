@@ -3,12 +3,7 @@ import { PokemonContext } from "../../context/pokemon.context";
 import PokemonModal from "../PokemonModal/PokemonModal";
 import "./PokemonTile.css";
 import { TYPE_COLORS } from "../../utils/typeColors";
-
-//helper function
-const capitalizeName = (str) => {
-  if (!str) return;
-  return str[0].toUpperCase() + str.substring(1);
-};
+import { capitalizeName } from "../../utils/utils";
 
 const PokemonTile = ({ index, data }) => {
   const { menuIsSelected, updateMenuSelection } = useContext(PokemonContext);

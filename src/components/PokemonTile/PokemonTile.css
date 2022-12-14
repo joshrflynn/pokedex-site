@@ -1,13 +1,14 @@
 .pokemon-tile {
+  letter-spacing: 1px;
   display: inline-flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 160px;
-  width: 180px;
+  height: 140px;
+  width: 160px;
   margin: 10px 10px;
-  font-size: 20px;
-  box-shadow: 1px 1px 8px black;
+  font-size: 18px;
+  box-shadow: 0px 0px 10px black;
   border: 1px solid black;
   border-radius: 10px;
   transition: width 1s height 1s;
@@ -34,11 +35,11 @@
 }
 
 .pokemon-name {
-  font-weight: bold;
-  transform: translateY(-2px);
+  color: white;
+  transform: translateY(-10px);
   width: 100%;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   border-bottom-left-radius: 9px;
   border-bottom-right-radius: 9px;
 }

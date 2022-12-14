@@ -48,12 +48,8 @@ const PokemonTile = ({ index, data }) => {
           <div className="pokemon-name">
             {capitalizeName(data.species.name)}
           </div>
-          <PokemonModal
-            show={show}
-            setShow={setShow}
-            data={data}
-            key={data.id}
-          />
+
+          <PokemonModal show={show} setShow={setShow} data={data} />
         </div>
       )}
     </>

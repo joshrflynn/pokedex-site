@@ -1,5 +1,4 @@
 .pokemon-tile {
-  letter-spacing: 1px;
   display: inline-flex;
   flex-direction: column;
   justify-content: space-around;
@@ -36,10 +35,11 @@
 
 .pokemon-name {
   color: white;
-  transform: translateY(-10px);
+  transform: translateY(-12px);
   width: 100%;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.5);
-  border-bottom-left-radius: 9px;
-  border-bottom-right-radius: 9px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 2px 0px;
 }

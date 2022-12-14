@@ -28,7 +28,7 @@ function App() {
         <Navigation />
         <>
           <Sidebar />
-          <PokemonList />;
+          <PokemonList />
         </>
       </SidebarProvider>
     </div>

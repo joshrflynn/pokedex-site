@@ -11,8 +11,13 @@ const URL = "https://pokeapi.co/api/v2/pokemon/";
 
 const PokemonList = () => {
   const POKEDEX_MAX_SIZE = 905;
-  const { pokeArr, updatePokeArr, filteredPokeArr, updateFilteredPokeArr } =
-    useContext(PokemonContext);
+  const {
+    pokeArr,
+    updatePokeArr,
+    filteredPokeArr,
+    updateFilteredPokeArr,
+    loadingFinished,
+  } = useContext(PokemonContext);
 
   const { isSidebarOpen } = useContext(SidebarContext);
 
@@ -47,7 +52,7 @@ const PokemonList = () => {
     updateFilteredPokeArr(pokeArr);
   }, [pokeArr]);
 
-  if (pokeArr.length === 905) {
+  if (pokeArr.length === 905 && loadingFinished) {
     return (
       <div>
         <SearchBar />

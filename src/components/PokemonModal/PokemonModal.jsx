@@ -43,11 +43,6 @@ const PokemonModal = ({ show, setShow, data }) => {
               alt={`${data.name} front sprite`}
               id="front-sprite"
             />
-            <img
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${data.id}.png`}
-              alt={`${data.name} back sprite`}
-              id="back-sprite"
-            />
           </div>
 
           <div className="type-container">
@@ -56,7 +51,11 @@ const PokemonModal = ({ show, setShow, data }) => {
                 background: `${TYPE_COLORS[data.types[index].type.name]}`,
               };
               return (
-                <div style={typeStyle} className={"type"}>
+                <div
+                  style={typeStyle}
+                  className={"type"}
+                  key={`${data.name} type ${index}`}
+                >
                   {type.type.name.toUpperCase()}
                 </div>
               );

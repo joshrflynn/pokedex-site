@@ -3,6 +3,7 @@ import { createContext, useState } from "react";
 export const PokemonContext = createContext();
 
 export const PokemonProvider = ({ children }) => {
+  const [loadingFinished, setLoadingFinished] = useState(false);
   const [pokeArr, setPokeArr] = useState([]);
   const [filteredPokeArr, setFilteredPokeArr] = useState([]);
   const [menuIsSelected, setMenuIsSelected] = useState(false);
@@ -19,6 +20,10 @@ export const PokemonProvider = ({ children }) => {
     setPokeArr((currState) => [...currState, newState]);
   };
 
+  const updateLoadingFinished = (newState) => {
+    setLoadingFinished(newState);
+  };
+
   const value = {
     menuIsSelected,
     updateMenuSelection,
@@ -26,6 +31,8 @@ export const PokemonProvider = ({ children }) => {
     updatePokeArr,
     filteredPokeArr,
     updateFilteredPokeArr,
+    loadingFinished,
+    updateLoadingFinished,
   };
 
   return (

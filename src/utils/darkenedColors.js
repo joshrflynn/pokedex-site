@@ -4,7 +4,7 @@ export const DARKENED_COLORS = {
   water: "#144bcc",
   electric: "#bb9707",
   grass: "#4c8c2c",
-  ice: "#7b1e19",
+  ice: "#41aeae",
   fighting: "#7b1e19",
   poison: "#6a2a6a",
   ground: "#b28c24",

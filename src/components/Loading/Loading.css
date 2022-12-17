@@ -4,9 +4,19 @@
   align-items: center;
   margin-top: 150px;
 }
-.loading > img {
+.gif {
   margin-bottom: 30px;
   width: 200px;
+  animation: rotation 3s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 .loading-text {

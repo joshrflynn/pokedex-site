@@ -91,5 +91,6 @@ html,
 body,
 #root {
   min-height: 100vh;
+  min-width: 360px;
   background-color: #d3d3d3;
 }

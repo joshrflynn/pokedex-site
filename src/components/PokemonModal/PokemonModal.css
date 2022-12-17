@@ -1,21 +1,17 @@
 .modal-container {
+  /* min-width: 360px; */
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 95vh;
   position: fixed;
-  top: 0;
-  left: 0;
-  margin-top: 75px;
-  transition: z-index 0.3s, opacity 0.3s;
+  transition: z-index 1s, opacity 0.8s, width 1s, height 1s, top 1s, left 1s;
+  will-change: z-index, opacity, width, height, top, left;
   background: var(--bg);
 }
 
 .modal {
-  width: 60%;
-  max-width: 700px;
-  min-width: 400px;
+  width: 95%;
+  max-width: 570px;
   height: 80%;
   margin-top: 20px;
   border: 1px solid var(--dark);
@@ -63,5 +59,5 @@
 
 .type-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }

@@ -8,7 +8,6 @@ const Loading = () => {
 
   const msgs = [
     "Throwing Pokéballs: 100%",
-    "Battling Trainers: 100%",
     "Beating Elite Four: 100%",
     "Completing Pokedex: 100%",
     "Loading...",
@@ -28,9 +27,10 @@ const Loading = () => {
           setDisplayText((prevState) => prevState + "\n");
         } else {
           updateLoadingFinished(true);
+          clearInterval();
         }
       }
-    }, 50);
+    }, 60);
   }, []);
 
   return (

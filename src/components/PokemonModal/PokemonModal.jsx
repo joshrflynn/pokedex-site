@@ -1,7 +1,8 @@
 import "./PokemonModal.css";
 import { TYPE_COLORS } from "../../utils/typeColors";
 import { DARKENED_COLORS } from "../../utils/darkenedColors";
-import { capitalizeName } from "../../utils/utils";
+import { capitalizeFirstLetter } from "../../utils/utils";
+import Stats from "../Stats/Stats";
 
 const PokemonModal = ({ show, setShow, data }) => {
   const modalCloseHandler = () => {
@@ -22,20 +23,30 @@ const PokemonModal = ({ show, setShow, data }) => {
       "--dark": DARKENED_COLORS[data.types[0].type.name],
       opacity: 0,
       zIndex: -1,
+      width: "0px",
+      height: "0px",
+      top: "50%",
+      left: "50%",
     };
   } else {
     style = {
       "--bg": background,
       "--dark": DARKENED_COLORS[data.types[0].type.name],
       opacity: 1,
-      zIndex: 1,
+      zIndex: 3,
+      height: "100vh",
+      width: "100vw",
+      top: "0%",
+      left: "0%",
     };
   }
 
   return (
     <div className="modal-container" style={style} onClick={modalCloseHandler}>
       <div className="modal">
-        <div className="modal-header">{capitalizeName(data.name)}</div>
+        <div className="modal-header">
+          {capitalizeFirstLetter(data.species.name)}
+        </div>
         <div className="modal-content-1">
           <div className="sprite-container">
             <img
@@ -62,6 +73,13 @@ const PokemonModal = ({ show, setShow, data }) => {
             })}
           </div>
         </div>
+        <div className="stat-container">
+          <Stats stats={data.stats} name={data.name} />
+        </div>
+        {/* {data.moves.length >= 0 &&
+          data.moves.map((move) => {
+            return <div>{move.move.name}</div>;
+          })} */}
       </div>
     </div>
   );

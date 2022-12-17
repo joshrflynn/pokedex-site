@@ -9,6 +9,10 @@ const Navigation = () => {
     updateSidebar(!isSidebarOpen);
   };
 
+  document.addEventListener("scroll", () => {
+    updateSidebar(false);
+  });
+
   return (
     <div className="navbar">
       <div

@@ -1,0 +1,17 @@
+.stat-container {
+  margin-left: 25%;
+}
+.stat-line {
+  display: flex;
+}
+
+.stat-name {
+  width: 100px;
+}
+
+.base-stat {
+  width: 30%;
+  border: 1px solid black;
+  padding: 2px;
+  margin: 1px 0;
+}

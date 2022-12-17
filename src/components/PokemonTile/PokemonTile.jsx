@@ -3,7 +3,7 @@ import { PokemonContext } from "../../context/pokemon.context";
 import PokemonModal from "../PokemonModal/PokemonModal";
 import "./PokemonTile.css";
 import { TYPE_COLORS } from "../../utils/typeColors";
-import { capitalizeName } from "../../utils/utils";
+import { capitalizeFirstLetter } from "../../utils/utils";
 
 const PokemonTile = ({ index, data }) => {
   const { menuIsSelected, updateMenuSelection } = useContext(PokemonContext);
@@ -46,7 +46,7 @@ const PokemonTile = ({ index, data }) => {
             draggable={false}
           />
           <div className="pokemon-name">
-            {capitalizeName(data.species.name)}
+            {capitalizeFirstLetter(data.species.name)}
           </div>
 
           <PokemonModal show={show} setShow={setShow} data={data} />

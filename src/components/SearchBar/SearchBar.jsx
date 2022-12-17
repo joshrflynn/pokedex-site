@@ -10,11 +10,10 @@ const SearchBar = () => {
 
   const searchTextChangeHandler = (e) => {
     if (!e.target.value) {
-      console.log('break')
       updateFilteredPokeArr(pokeArr);
       return;
     }
-    console.log('search')
+
     const matchingPokemon = pokeArr.filter((element) => {
       return element.species.name.startsWith(e.target.value.toLowerCase());
     });

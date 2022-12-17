@@ -6,8 +6,7 @@ import Loading from "../Loading/Loading";
 import PokemonTile from "../PokemonTile/PokemonTile";
 
 const PokemonList = () => {
-  const { pokeArr, filteredPokeArr, loadingFinished } =
-    useContext(PokemonContext);
+  const { filteredPokeArr, loadingFinished } = useContext(PokemonContext);
 
   // useEffect(() => {
   //   if (pokeArr.length === 0) {

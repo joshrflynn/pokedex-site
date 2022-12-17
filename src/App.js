@@ -29,10 +29,12 @@ function App() {
 
       fetchData();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     updateFilteredPokeArr(pokeArr);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pokeArr]);
 
   const { menuIsSelected } = useContext(PokemonContext);

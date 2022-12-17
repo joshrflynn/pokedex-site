@@ -30,7 +30,7 @@ const PokemonList = () => {
   //   updateFilteredPokeArr(pokeArr);
   // }, [pokeArr]);
 
-  if (pokeArr.length === 905 && loadingFinished) {
+  if (loadingFinished) {
     return (
       <div>
         <SearchBar />

@@ -29,7 +29,7 @@ const Navigation = () => {
           <rect y="60" width="100" height="20"></rect>
         </svg>
       </div>
-      <span id="nav-title">Pokedex Project</span>
+      <span id="nav-title">ReactDex</span>
     </div>
   );
 };

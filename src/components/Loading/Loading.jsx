@@ -6,31 +6,31 @@ const Loading = () => {
   const [displayText, setDisplayText] = useState("");
   const { updateLoadingFinished } = useContext(PokemonContext);
 
-  const msgs = [
-    "Throwing Pokéballs: 100%",
-    "Beating Elite Four: 100%",
-    "Completing Pokedex: 100%",
-    "Loading...",
-  ];
-
   useEffect(() => {
+    const msgs = [
+      "Throwing Pokéballs: 100%",
+      "Beating Elite Four: 100%",
+      "Completing Pokedex: 100%",
+      "Loading...",
+    ];
+
     let msgIndex = 0;
     let i = 0;
-    setInterval(() => {
+    const intervalID = setInterval(() => {
       if (i < msgs[msgIndex].length) {
         setDisplayText((prevState) => prevState + msgs[msgIndex][i++]);
       } else {
         if (msgIndex < msgs.length - 1) {
-          console.log(msgIndex);
           msgIndex++;
           i = 0;
           setDisplayText((prevState) => prevState + "\n");
         } else {
+          clearInterval(intervalID);
           updateLoadingFinished(true);
-          clearInterval();
         }
       }
-    }, 60);
+    }, 50);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

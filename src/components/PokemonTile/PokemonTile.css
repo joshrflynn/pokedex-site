@@ -27,6 +27,7 @@
 
 .pokemon-image {
   width: 120px;
+  height: 120px;
   transform: translateY(5px);
 }
 

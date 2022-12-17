@@ -46,10 +46,26 @@ function App() {
     }
   }, [menuIsSelected]);
 
+  //TODO delete styles and element once finished with development
+  const tempBannerStyle = {
+    textAlign: "center",
+    marginTop: "5px",
+  };
+
   return (
     <div>
       <SidebarProvider>
         <Navigation />
+        <div style={tempBannerStyle}>
+          This site is still under development! Follow updates{" "}
+          <a
+            href="https://github.com/joshrflynn/pokedex-site"
+            target={"_blank"}
+            rel="noreferrer"
+          >
+            Here!
+          </a>
+        </div>
         <>
           <Sidebar />
           <PokemonList />

@@ -3,6 +3,7 @@ import { TYPE_COLORS } from "../../utils/typeColors";
 import { DARKENED_COLORS } from "../../utils/darkenedColors";
 import { capitalizeFirstLetter } from "../../utils/utils";
 import Stats from "../Stats/Stats";
+import Ability from "../Ability/Ability";
 
 const PokemonModal = ({ show, setShow, data }) => {
   const modalCloseHandler = () => {
@@ -76,10 +77,11 @@ const PokemonModal = ({ show, setShow, data }) => {
         <div className="stat-container">
           <Stats stats={data.stats} name={data.name} />
         </div>
-        {/* {data.moves.length >= 0 &&
-          data.moves.map((move) => {
-            return <div>{move.move.name}</div>;
-          })} */}
+        <div>
+          {data.abilities.map((ability) => {
+            return <Ability data={ability} />;
+          })}
+        </div>
       </div>
     </div>
   );

@@ -3,5 +3,5 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: auto;
-  width: 90%;
+  max-width: 80vw;
 }

@@ -6,7 +6,6 @@
 }
 .gif {
   margin-bottom: 30px;
-  width: 200px;
   animation: rotation 3s infinite linear;
 }
 
@@ -20,7 +19,13 @@
 }
 
 .loading-text {
-  font-size: 24px;
+  font-size: 16px;
   white-space: pre;
   text-align: center;
+}
+
+/* these need to match to keep the text centered */
+.gif,
+.loading-text {
+  width: 200px;
 }

@@ -1,10 +1,12 @@
 .modal-container {
   /* min-width: 360px; */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: fixed;
-  transition: z-index 1s, opacity 0.8s, width 1s, height 1s, top 1s, left 1s;
+  transition: z-index 0.4s, opacity 0.4s, width 0.4s, height 0.4s, top 0.4s,
+    left 0.4s;
   will-change: z-index, opacity, width, height, top, left;
   background: var(--bg);
 }
@@ -17,6 +19,12 @@
   border: 1px solid var(--dark);
   background-color: white;
   overflow-y: scroll;
+}
+
+.modal-container::after {
+  content: "(click anywhere to close)";
+  transform: translateY(-16px);
+  font-size: 12px;
 }
 
 .modal-header {

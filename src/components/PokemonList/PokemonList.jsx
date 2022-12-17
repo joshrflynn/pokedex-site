@@ -8,27 +8,6 @@ import PokemonTile from "../PokemonTile/PokemonTile";
 const PokemonList = () => {
   const { filteredPokeArr, loadingFinished } = useContext(PokemonContext);
 
-  // useEffect(() => {
-  //   if (pokeArr.length === 0) {
-  //     const fetchData = async () => {
-  //       for (let i = 1; i <= POKEDEX_MAX_SIZE; i++) {
-  //         try {
-  //           const result = await axios(URL + i.toString());
-  //           updatePokeArr(result.data);
-  //         } catch (err) {
-  //           console.log(err);
-  //         }
-  //       }
-  //     };
-
-  //     fetchData();
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   updateFilteredPokeArr(pokeArr);
-  // }, [pokeArr]);
-
   if (loadingFinished) {
     return (
       <div>

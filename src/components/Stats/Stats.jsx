@@ -1,7 +1,7 @@
 import "./Stats.css";
 
 const Stats = ({ stats, name }) => {
-  const statArr = ["HP", "Attack", "Defense", "Sp Atk", "Sp Def", "Speed"];
+  const statArr = ["HP", "Atk", "Def", "SpA", "SpD", "Spd"];
 
   return (
     <>

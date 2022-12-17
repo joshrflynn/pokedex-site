@@ -14,21 +14,20 @@ function App() {
     useContext(PokemonContext);
 
   useEffect(() => {
-    if (pokeArr.length === 0) {
-      const fetchData = async () => {
-        for (let i = 1; i <= POKEDEX_MAX_SIZE; i++) {
-          try {
-            const result = await axios(URL + i.toString());
-            console.log(result);
-            updatePokeArr(result.data);
-          } catch (err) {
-            console.log(err);
-          }
+    const fetchData = async () => {
+      for (let i = 1; i <= POKEDEX_MAX_SIZE; i++) {
+        try {
+          const result = await axios(URL + i.toString());
+          console.log(result);
+          updatePokeArr(result.data);
+        } catch (err) {
+          console.log(err);
         }
-      };
+      }
+    };
 
-      fetchData();
-    }
+    fetchData();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

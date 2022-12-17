@@ -77,10 +77,20 @@ const PokemonModal = ({ show, setShow, data }) => {
         <div className="stat-container">
           <Stats stats={data.stats} name={data.name} />
         </div>
-        <div>
+        <div className="ability-container">
           {data.abilities.map((ability) => {
-            return <Ability data={ability} />;
+            return (
+              <Ability
+                data={ability}
+                key={`${data.name}-${ability.ability.name}`}
+              />
+            );
           })}
+        </div>
+        <div className="move-container">
+          {data.moves.map((move) => {
+            return <div>{move.move.name}</div>;
+          })}{" "}
         </div>
       </div>
     </div>

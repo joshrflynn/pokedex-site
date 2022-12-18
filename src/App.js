@@ -18,7 +18,6 @@ function App() {
       for (let i = 1; i <= POKEDEX_MAX_SIZE; i++) {
         try {
           const result = await axios(URL + i.toString());
-          console.log(result);
           updatePokeArr(result.data);
         } catch (err) {
           console.log(err);

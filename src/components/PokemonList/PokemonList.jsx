@@ -6,9 +6,10 @@ import Loading from "../Loading/Loading";
 import PokemonTile from "../PokemonTile/PokemonTile";
 
 const PokemonList = () => {
-  const { filteredPokeArr, loadingFinished } = useContext(PokemonContext);
+  const { pokeArr, filteredPokeArr, loadingFinished } =
+    useContext(PokemonContext);
 
-  if (loadingFinished) {
+  if (loadingFinished && pokeArr.length === 905) {
     return (
       <div>
         <SearchBar />

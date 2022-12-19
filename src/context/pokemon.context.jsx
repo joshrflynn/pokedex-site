@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const PokemonContext = createContext();
 
@@ -7,6 +7,21 @@ export const PokemonProvider = ({ children }) => {
   const [pokeArr, setPokeArr] = useState([]);
   const [filteredPokeArr, setFilteredPokeArr] = useState([]);
   const [menuIsSelected, setMenuIsSelected] = useState(false);
+  const [limit, setLimit] = useState(50);
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 50);
+  }, [offset]);
+
+  const updateLimit = (newState) => {
+    setLimit(newState);
+  };
+  const updateOffset = (newState) => {
+    setOffset(newState);
+  };
 
   const updateFilteredPokeArr = (newState) => {
     setFilteredPokeArr(newState);
@@ -16,7 +31,7 @@ export const PokemonProvider = ({ children }) => {
     setMenuIsSelected(newState);
   };
 
-  const updatePokeArr = (newState) => {
+  const addToPokeArr = (newState) => {
     setPokeArr((currState) => [...currState, newState]);
   };
 
@@ -28,11 +43,15 @@ export const PokemonProvider = ({ children }) => {
     menuIsSelected,
     updateMenuSelection,
     pokeArr,
-    updatePokeArr,
+    addToPokeArr,
     filteredPokeArr,
     updateFilteredPokeArr,
     loadingFinished,
     updateLoadingFinished,
+    limit,
+    offset,
+    updateOffset,
+    updateLimit,
   };
 
   return (

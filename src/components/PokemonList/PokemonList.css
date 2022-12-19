@@ -5,3 +5,31 @@
   margin: auto;
   max-width: 80vw;
 }
+
+.left-button,
+.right-button {
+  position: fixed;
+  top: 50vh;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 100%;
+  transition: background-color 0.4s;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.left-button:hover,
+.right-button:hover {
+  background-color: white;
+}
+
+.left-button {
+  left: 15px;
+}
+.right-button {
+  right: 15px;
+}

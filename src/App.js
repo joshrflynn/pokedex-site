@@ -4,13 +4,12 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import { SidebarProvider } from "./context/sidebar.context";
 import { PokemonContext } from "./context/pokemon.context";
 import { useContext, useEffect } from "react";
+import { POKEDEX_MAX_SIZE } from "./utils/utils";
 import axios from "axios";
 
-const URL = "https://pokeapi.co/api/v2/pokemon/";
-
 function App() {
-  const POKEDEX_MAX_SIZE = 905;
-  const { pokeArr, updatePokeArr, updateFilteredPokeArr } =
+  const URL = "https://pokeapi.co/api/v2/pokemon/";
+  const { limit, offset, pokeArr, addToPokeArr, updateFilteredPokeArr } =
     useContext(PokemonContext);
 
   useEffect(() => {
@@ -18,8 +17,10 @@ function App() {
       for (let i = 1; i <= POKEDEX_MAX_SIZE; i++) {
         try {
           const result = await axios(URL + i.toString());
-          updatePokeArr(result.data);
+          addToPokeArr(result.data);
         } catch (err) {
+          //TODO catch error and send to error page - create error page
+          //
           console.log(err);
         }
       }
@@ -30,9 +31,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    updateFilteredPokeArr(pokeArr);
+    updateFilteredPokeArr(pokeArr.slice(offset, offset + limit));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pokeArr]);
+  }, [limit, offset, pokeArr]);
 
   const { menuIsSelected } = useContext(PokemonContext);
 

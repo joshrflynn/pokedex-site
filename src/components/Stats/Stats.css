@@ -1,18 +1,30 @@
 .stat-container {
-  margin-left: 25%;
+  width: 35%;
 }
+
 .stat-line {
   display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
-.stat-name {
-  width: 40px;
-}
-
+.stat-name,
 .base-stat {
-  width: 60%;
-  max-width: 130px;
+  padding-top: 6px;
+}
+
+.base-stat-graph {
+  width: 100px;
+  display: inline;
+  min-height: 100%;
+  font-family: "Courier New", Courier, monospace;
+  text-align: right;
+  font-weight: bolder;
   border: 1px solid black;
+  box-shadow: 0px 0px 3px black;
   padding: 2px;
-  margin: 1px 0;
+  margin: 2px 0;
+
+  -webkit-text-fill-color: black; /* Will override color (regardless of order) */
+  -webkit-text-stroke: 1px white;
 }

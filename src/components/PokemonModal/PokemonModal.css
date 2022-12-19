@@ -1,5 +1,4 @@
 .modal-container {
-  /* min-width: 360px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,8 +29,9 @@
 .modal-header {
   background-color: var(--dark);
   color: white;
-  height: 45px;
+  height: 55px;
   display: flex;
+  font-size: 48px;
   justify-content: center;
   align-items: center;
 }
@@ -47,12 +47,23 @@
   margin: 5px;
 }
 .modal-content-1 {
-  width: 90%;
+  margin-top: 15px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin: auto;
+}
+
+.ability-header {
+  text-decoration: underline;
+  margin-bottom: 5px;
+}
+
+.modal-subcontent-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sprite-container {
@@ -60,12 +71,17 @@
   flex-direction: row;
 }
 
-.modal-content-1 img {
+#front-sprite {
   width: 160px;
-  margin: 10px -10px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 10px black;
 }
 
 .type-container {
   display: flex;
-  flex-direction: column;
+  margin-top: 4px;
+}
+
+.ability-container {
+  text-align: center;
 }

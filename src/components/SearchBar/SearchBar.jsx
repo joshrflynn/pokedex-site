@@ -3,14 +3,12 @@ import { PokemonContext } from "../../context/pokemon.context";
 import "./SearchBar.css";
 
 const SearchBar = () => {
-  //create filtered array context
-  //default to whole pokemon list
-
-  const { pokeArr, updateFilteredPokeArr } = useContext(PokemonContext);
+  const { pokeArr, updateFilteredPokeArr, limit, offset } =
+    useContext(PokemonContext);
 
   const searchTextChangeHandler = (e) => {
     if (!e.target.value) {
-      updateFilteredPokeArr(pokeArr);
+      updateFilteredPokeArr(pokeArr.slice(offset, limit + offset));
       return;
     }
 

@@ -13,6 +13,7 @@ const Loading = () => {
       updateLoadingFinished(true);
     }
     setLoading(pokeArr.length);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pokeArr]);
 
   return (

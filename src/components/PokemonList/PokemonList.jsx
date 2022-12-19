@@ -7,14 +7,8 @@ import PokemonTile from "../PokemonTile/PokemonTile";
 import { POKEDEX_MAX_SIZE } from "../../utils/utils";
 
 const PokemonList = () => {
-  const {
-    offset,
-    updateOffset,
-    limit,
-    pokeArr,
-    filteredPokeArr,
-    loadingFinished,
-  } = useContext(PokemonContext);
+  const { offset, updateOffset, limit, filteredPokeArr, loadingFinished } =
+    useContext(PokemonContext);
 
   const increaseOffset = () => {
     updateOffset(offset + limit);

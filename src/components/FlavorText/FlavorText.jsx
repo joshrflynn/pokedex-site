@@ -27,7 +27,11 @@ const FlavorText = ({ url }) => {
                 })[0].genus
               }
             </div>
-            {speciesData.flavor_text_entries[0].flavor_text}
+            {
+              speciesData.flavor_text_entries.filter((textElement) => {
+                return textElement.language.name === "en";
+              })[0].flavor_text
+            }
           </div>
         </div>
       )}

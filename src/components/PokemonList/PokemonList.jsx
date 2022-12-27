@@ -20,16 +20,20 @@ const PokemonList = () => {
   if (loadingFinished) {
     return (
       <div>
-        {loadingFinished ? <SearchBar /> : "Still Loading"}
+        <SearchBar />
         <div className="pokemon-list">
           {offset !== 0 && (
             <div className="left-button" onClick={decreaseOffset}>
               &lt;
+              <br />
+              Prev
             </div>
           )}
           {offset + limit < POKEDEX_MAX_SIZE && (
             <div className="right-button" onClick={increaseOffset}>
               &gt;
+              <br />
+              Next
             </div>
           )}
           {filteredPokeArr.map((pokemon) => {

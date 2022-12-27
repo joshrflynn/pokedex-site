@@ -9,10 +9,10 @@
 .left-button,
 .right-button {
   position: fixed;
-  font-size: 30px;
+  font-size: 18px;
   padding: 20px;
   top: 0;
-  transition: background-color 0.4s;
+  /* transition: background-color 0.4s; */
   /* height: 30px; */
   width: 30px;
   display: flex;
@@ -20,12 +20,13 @@
   align-items: center;
   user-select: none;
   height: 100vh;
+  text-align: center;
 }
-
+/* 
 .left-button:hover,
 .right-button:hover {
   background-color: white;
-}
+} */
 
 .left-button {
   left: 0px;

@@ -6,17 +6,19 @@ import { TYPE_COLORS } from "../../utils/typeColors";
 import { capitalizeFirstLetter } from "../../utils/utils";
 
 const PokemonTile = ({ index, data }) => {
-  const { menuIsSelected, updateMenuSelection } = useContext(PokemonContext);
+  const { modalIsSelected, updateModalSelection } = useContext(PokemonContext);
   const [isSelected, setIsSelected] = useState(false);
   const [show, setShow] = useState(false);
 
   const clickHandler = () => {
-    if (!menuIsSelected) {
-      updateMenuSelection(true);
+    if (!modalIsSelected) {
+      document.title = capitalizeFirstLetter(data.species.name);
+      updateModalSelection(true);
       setShow(true);
       setIsSelected(true);
-    } else if (menuIsSelected && isSelected) {
-      updateMenuSelection(false);
+    } else if (modalIsSelected && isSelected) {
+      document.title = "React PokeDex";
+      updateModalSelection(false);
       setShow(false);
       setIsSelected(false);
     }

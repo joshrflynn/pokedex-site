@@ -21,8 +21,8 @@ const PokemonModal = ({ show, setShow, data }) => {
   let style;
   if (!show) {
     style = {
-      "--bg": background,
-      "--dark": DARKENED_COLORS[data.types[0].type.name],
+      "--bgColor": background,
+      "--darkColor": DARKENED_COLORS[data.types[0].type.name],
       opacity: 0,
       zIndex: -1,
       width: "0px",
@@ -32,8 +32,8 @@ const PokemonModal = ({ show, setShow, data }) => {
     };
   } else {
     style = {
-      "--bg": background,
-      "--dark": DARKENED_COLORS[data.types[0].type.name],
+      "--bgColor": background,
+      "--darkColor": DARKENED_COLORS[data.types[0].type.name],
       opacity: 1,
       zIndex: 3,
       height: "100vh",
@@ -93,11 +93,11 @@ const PokemonModal = ({ show, setShow, data }) => {
         </div>
 
         <FlavorText url={data.species.url} />
-        <div className="move-container">
+        {/* <div className="move-container">
           {data.moves.map((move) => {
             return <div>{move.move.name}</div>;
-          })}{" "}
-        </div>
+          })}
+        </div> */}
       </div>
     </div>
   );

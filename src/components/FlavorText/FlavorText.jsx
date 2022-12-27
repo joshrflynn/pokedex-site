@@ -12,12 +12,26 @@ const FlavorText = ({ url }) => {
       setSpeciesData(response.data);
     };
     fetchData();
-  }, [url]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
-    <div className="flavor-text">
-      {speciesData !== null && speciesData.flavor_text_entries[0].flavor_text}
-    </div>
+    <>
+      {speciesData !== null && (
+        <div>
+          <div className="flavor-text">
+            <div className="genera">
+              {
+                speciesData.genera.filter((generaElement) => {
+                  return generaElement.language.name === "en";
+                })[0].genus
+              }
+            </div>
+            {speciesData.flavor_text_entries[0].flavor_text}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

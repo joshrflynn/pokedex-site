@@ -1,16 +1,12 @@
 import { useContext } from "react";
 import { SidebarContext } from "../../context/sidebar.context";
-
-import "./Sidebar.css";
+import { SidebarContainer } from "./Sidebar.styles";
 
 const Sidebar = () => {
   const { isSidebarOpen } = useContext(SidebarContext);
 
   return (
-    <div
-      className={isSidebarOpen ? `expanded` : `minimized`}
-      id="sidebar-container"
-    >
+    <SidebarContainer style={isSidebarOpen ? { left: 0 } : { left: "-180px" }}>
       <div>
         <span>
           <u>About</u>
@@ -24,7 +20,7 @@ const Sidebar = () => {
           Design inspired by Pokedex.org
         </span>
       </div>
-    </div>
+    </SidebarContainer>
   );
 };
 

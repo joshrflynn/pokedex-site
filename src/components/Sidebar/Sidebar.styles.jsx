@@ -1,4 +1,6 @@
-#sidebar-container {
+import styled from "styled-components";
+
+export const SidebarContainer = styled.div`
   will-change: left;
   transition: left 1s ease;
   height: 100%;
@@ -10,12 +12,4 @@
   text-align: center;
   position: fixed;
   z-index: 1;
-}
-
-.expanded {
-  left: 0;
-}
-
-.minimized {
-  left: -180px;
-}
+`;

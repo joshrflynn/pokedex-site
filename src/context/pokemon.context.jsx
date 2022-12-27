@@ -6,8 +6,8 @@ export const PokemonProvider = ({ children }) => {
   const [loadingFinished, setLoadingFinished] = useState(false);
   const [pokeArr, setPokeArr] = useState([]);
   const [filteredPokeArr, setFilteredPokeArr] = useState([]);
-  const [menuIsSelected, setMenuIsSelected] = useState(false);
-  const [limit, setLimit] = useState(50);
+  const [modalIsSelected, setmodalIsSelected] = useState(false);
+  const [limit, setLimit] = useState(80);
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
@@ -27,8 +27,8 @@ export const PokemonProvider = ({ children }) => {
     setFilteredPokeArr(newState);
   };
 
-  const updateMenuSelection = (newState) => {
-    setMenuIsSelected(newState);
+  const updateModalSelection = (newState) => {
+    setmodalIsSelected(newState);
   };
 
   const addToPokeArr = (newState) => {
@@ -40,8 +40,8 @@ export const PokemonProvider = ({ children }) => {
   };
 
   const value = {
-    menuIsSelected,
-    updateMenuSelection,
+    modalIsSelected,
+    updateModalSelection,
     pokeArr,
     addToPokeArr,
     filteredPokeArr,

@@ -3,23 +3,23 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: auto;
-  max-width: 80vw;
+  max-width: 75vw;
 }
 
 .left-button,
 .right-button {
   position: fixed;
-  top: 50vh;
   font-size: 30px;
-  padding: 10px;
-  border-radius: 100%;
+  padding: 20px;
+  top: 0;
   transition: background-color 0.4s;
-  height: 30px;
+  /* height: 30px; */
   width: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   user-select: none;
+  height: 100vh;
 }
 
 .left-button:hover,
@@ -28,8 +28,8 @@
 }
 
 .left-button {
-  left: 15px;
+  left: 0px;
 }
 .right-button {
-  right: 15px;
+  right: 0px;
 }

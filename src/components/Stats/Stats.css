@@ -1,30 +1,24 @@
-.stat-container {
-  width: 35%;
-}
-
-.stat-line {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
 .stat-name,
 .base-stat {
-  padding-top: 6px;
+  width: 40px;
+}
+.base-stat {
+  text-align: center;
+  margin-right: 5px;
 }
 
-.base-stat-graph {
-  width: 100px;
-  display: inline;
-  min-height: 100%;
-  font-family: "Courier New", Courier, monospace;
-  text-align: right;
-  font-weight: bolder;
-  border: 1px solid black;
-  box-shadow: 0px 0px 3px black;
-  padding: 2px;
-  margin: 2px 0;
+.base-stat-total-container {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+}
 
-  -webkit-text-fill-color: black; /* Will override color (regardless of order) */
-  -webkit-text-stroke: 1px white;
+@media (max-width: 560px) {
+  .base-stat-graph {
+    width: 150px;
+  }
+  .stat-container {
+    width: 50%;
+    min-width: 220px;
+  }
 }

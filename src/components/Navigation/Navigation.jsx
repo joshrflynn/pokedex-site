@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { SidebarContext } from "../../context/sidebar.context";
-import "./Navigation.css";
+import { Navbar, NavTitle, NavMenuIcon } from "./Navigation.styles";
 
 const Navigation = () => {
   const { isSidebarOpen, updateSidebar } = useContext(SidebarContext);
@@ -14,23 +14,16 @@ const Navigation = () => {
   });
 
   return (
-    <div className="navbar">
-      <div
-        id={
-          isSidebarOpen
-            ? "nav-icon-container-open"
-            : "nav-icon-container-closed"
-        }
-        onClick={updateSidebarHandler}
-      >
+    <Navbar>
+      <NavMenuIcon onClick={updateSidebarHandler}>
         <svg viewBox="0 0 100 80" width="30" height="30" id="nav-icon">
           <rect width="100" height="20"></rect>
           <rect y="30" width="100" height="20"></rect>
           <rect y="60" width="100" height="20"></rect>
         </svg>
-      </div>
-      <span id="nav-title">ReactDex</span>
-    </div>
+      </NavMenuIcon>
+      <NavTitle>ReactDex</NavTitle>
+    </Navbar>
   );
 };
 

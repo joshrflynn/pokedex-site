@@ -1,34 +1,31 @@
+import { BaseStatBar, StatLine } from "./Stats.styles";
 import "./Stats.css";
 
 const Stats = ({ stats, name }) => {
   const statArr = ["HP", "Atk", "Def", "SpA", "SpD", "Spd"];
-
+  let baseStatTotal = 0;
   return (
     <>
       {stats.map((stat, index) => {
-        let color;
-        if (stat.base_stat >= 30) {
-          color = { color: "white" };
-        } else {
-          color = { color: "black" };
-        }
+        baseStatTotal += stat.base_stat;
         return (
-          <div className="stat-line" key={`${name}-${statArr[index]}`}>
+          <StatLine key={`${name}-${statArr[index]}`}>
             <div className="stat-name">{statArr[index]}:</div>
             <div className="base-stat">{stat.base_stat}</div>
-            <div
-              className="base-stat-graph"
+
+            <BaseStatBar
               style={{
-                background: `linear-gradient(to left, white
-                      ${(200 - stat.base_stat) / 2}%, var(--dark) 0%`,
-                ...color,
+                "--barFill": `${(200 - stat.base_stat) / 2}%`,
               }}
             >
               &nbsp;
-            </div>
-          </div>
+            </BaseStatBar>
+          </StatLine>
         );
       })}
+      <div className="base-stat-total-container">
+        Base Stat Total: <div className="base-stat-total">{baseStatTotal}</div>
+      </div>
     </>
   );
 };

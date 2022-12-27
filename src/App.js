@@ -9,9 +9,16 @@ import axios from "axios";
 
 function App() {
   const URL = "https://pokeapi.co/api/v2/pokemon/";
-  const { limit, offset, pokeArr, addToPokeArr, updateFilteredPokeArr } =
-    useContext(PokemonContext);
+  const {
+    limit,
+    offset,
+    pokeArr,
+    addToPokeArr,
+    updateFilteredPokeArr,
+    modalIsSelected,
+  } = useContext(PokemonContext);
 
+  //on first page load, requests data for each pokemon by dex number
   useEffect(() => {
     const fetchData = async () => {
       for (let i = 1; i <= POKEDEX_MAX_SIZE; i++) {
@@ -20,47 +27,43 @@ function App() {
           addToPokeArr(result.data);
         } catch (err) {
           //TODO catch error and send to error page - create error page
-          //
           console.log(err);
         }
       }
     };
     fetchData();
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // updates which pokemon are displayed when the user changes page
   useEffect(() => {
     updateFilteredPokeArr(pokeArr.slice(offset, offset + limit));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [limit, offset, pokeArr]);
 
-  const { menuIsSelected } = useContext(PokemonContext);
-
   //disables scrolling while modal is displaying
   useEffect(() => {
-    if (menuIsSelected) {
+    if (modalIsSelected) {
       document.querySelector("html").style.overflowY = "hidden";
     } else {
       document.querySelector("html").style.overflowY = "auto";
     }
-  }, [menuIsSelected]);
-
-  //TODO delete styles and element once finished with development
-  const tempBannerStyle = {
-    textAlign: "center",
-    marginTop: "5px",
-  };
+  }, [modalIsSelected]);
 
   return (
     <div>
       <SidebarProvider>
         <Navigation />
-        <div style={tempBannerStyle}>
-          This site is still under development! Follow updates{" "}
+        <div
+          style={{
+            textAlign: "center",
+            marginTop: "5px",
+          }}
+        >
+          This site is still under development! Follow updates
           <a
             href="https://github.com/joshrflynn/pokedex-site"
-            target={"_blank"}
+            target="_blank"
             rel="noreferrer"
           >
             Here!

@@ -7,7 +7,7 @@
   transition: z-index 0.4s, opacity 0.4s, width 0.4s, height 0.4s, top 0.4s,
     left 0.4s;
   will-change: z-index, opacity, width, height, top, left;
-  background: var(--bg);
+  background: var(--bgColor);
 }
 
 .modal {
@@ -15,25 +15,24 @@
   max-width: 570px;
   height: 80%;
   margin-top: 20px;
-  border: 1px solid var(--dark);
+  border: 1px solid var(--darkColor);
   background-color: white;
   overflow-y: scroll;
 }
 
-.modal-container::after {
-  content: "(click anywhere to close)";
-  transform: translateY(-16px);
-  font-size: 12px;
-}
-
 .modal-header {
-  background-color: var(--dark);
+  background-color: var(--darkColor);
   color: white;
   height: 55px;
   display: flex;
   font-size: 48px;
   justify-content: center;
   align-items: center;
+  letter-spacing: -1px;
+}
+
+.classification {
+  margin-bottom: 10px;
 }
 
 .type {
@@ -43,8 +42,8 @@
   font-weight: bold;
   letter-spacing: -1px;
   color: white;
-  border: 1px solid var(--dark);
-  margin: 5px;
+  border: 1px solid var(--darkColor);
+  margin: 10px 5px 0 5px;
 }
 .modal-content-1 {
   margin-top: 15px;
@@ -84,4 +83,15 @@
 
 .ability-container {
   text-align: center;
+}
+
+.stat-container {
+  width: 35%;
+}
+
+@media (max-width: 560px) {
+  .modal-content-1 {
+    flex-direction: column;
+    height: 88%;
+  }
 }

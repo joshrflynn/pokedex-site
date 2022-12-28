@@ -3,7 +3,7 @@ import Navigation from "./components/Navigation/Navigation";
 import Sidebar from "./components/Sidebar/Sidebar";
 import { SidebarProvider } from "./context/sidebar.context";
 import { PokemonContext } from "./context/pokemon.context";
-import { useContext, useEffect } from "react";
+import { useCallback, useContext, useEffect } from "react";
 import { POKEDEX_MAX_SIZE } from "./utils/utils";
 import axios from "axios";
 
@@ -12,11 +12,37 @@ function App() {
   const {
     limit,
     offset,
+    updateOffset,
     pokeArr,
     addToPokeArr,
     updateFilteredPokeArr,
     modalIsSelected,
   } = useContext(PokemonContext);
+
+  //memoized function so the event listener has the correct offset and limit
+  const keyDownHandler = useCallback(
+    (e) => {
+      switch (e.key) {
+        case "ArrowRight":
+          updateOffset(offset + limit, "increase");
+          break;
+        case "ArrowLeft":
+          updateOffset(offset - limit, "decrease");
+          break;
+        default:
+          break;
+      }
+    },
+    [offset, limit, updateOffset]
+  );
+
+  //keyboard scrolling through pages
+  useEffect(() => {
+    document.addEventListener("keydown", keyDownHandler);
+    return () => {
+      document.removeEventListener("keydown", keyDownHandler);
+    };
+  }, [keyDownHandler]);
 
   //on first page load, requests data for each pokemon by dex number
   useEffect(() => {
@@ -57,16 +83,18 @@ function App() {
         <div
           style={{
             textAlign: "center",
-            marginTop: "5px",
+            width: "50%",
+            minWidth: "250px",
+            margin: "5px auto",
           }}
         >
-          This site is still under development! Follow updates
+          This app is still under development! Follow updates{" "}
           <a
             href="https://github.com/joshrflynn/pokedex-site"
             target="_blank"
             rel="noreferrer"
           >
-            Here!
+            on my GitHub!
           </a>
         </div>
         <>

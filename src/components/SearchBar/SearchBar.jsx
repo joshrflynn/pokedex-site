@@ -7,7 +7,7 @@ const SearchBar = () => {
     useContext(PokemonContext);
 
   const searchTextChangeHandler = (e) => {
-    if (!e.target.value) {
+    if (e.target.value === "") {
       updateFilteredPokeArr(pokeArr.slice(offset, limit + offset));
       return;
     }

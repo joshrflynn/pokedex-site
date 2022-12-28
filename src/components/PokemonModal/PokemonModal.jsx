@@ -4,7 +4,7 @@ import { DARKENED_COLORS } from "../../utils/darkenedColors";
 import { capitalizeFirstLetter } from "../../utils/utils";
 import Stats from "../Stats/Stats";
 import Ability from "../Ability/Ability";
-import FlavorText from "../FlavorText/FlavorText";
+import SpeciesInfo from "../SpeciesInfo/SpeciesInfo";
 
 const PokemonModal = ({ show, setShow, data }) => {
   const modalCloseHandler = () => {
@@ -92,12 +92,7 @@ const PokemonModal = ({ show, setShow, data }) => {
           </div>
         </div>
 
-        <FlavorText url={data.species.url} />
-        {/* <div className="move-container">
-          {data.moves.map((move) => {
-            return <div>{move.move.name}</div>;
-          })}
-        </div> */}
+        <SpeciesInfo url={data.species.url} />
       </div>
     </div>
   );

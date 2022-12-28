@@ -1,52 +1,66 @@
 import { useContext } from "react";
 import { PokemonContext } from "../../context/pokemon.context";
-import "./PokemonList.css";
 import SearchBar from "../SearchBar/SearchBar";
 import Loading from "../Loading/Loading";
 import PokemonTile from "../PokemonTile/PokemonTile";
 import { POKEDEX_MAX_SIZE } from "../../utils/utils";
+import {
+  NextPageButton,
+  PokemonListContainer,
+  PrevPageButton,
+} from "./PokemonList.styles";
+import { PageNavigation } from "./PokemonList.styles";
 
 const PokemonList = () => {
   const { offset, updateOffset, limit, filteredPokeArr, loadingFinished } =
     useContext(PokemonContext);
 
   const increaseOffset = () => {
-    updateOffset(offset + limit);
+    updateOffset(offset + limit, "increase");
   };
   const decreaseOffset = () => {
-    updateOffset(offset - limit);
+    updateOffset(offset - limit, "decrease");
   };
 
-  if (loadingFinished) {
-    return (
-      <div>
-        <SearchBar />
-        <div className="pokemon-list">
-          {offset !== 0 && (
-            <div className="left-button" onClick={decreaseOffset}>
-              &lt;
-              <br />
-              Prev
-            </div>
-          )}
-          {offset + limit < POKEDEX_MAX_SIZE && (
-            <div className="right-button" onClick={increaseOffset}>
-              &gt;
-              <br />
-              Next
-            </div>
-          )}
-          {filteredPokeArr.map((pokemon) => {
-            return (
-              <PokemonTile data={pokemon} index={pokemon.id} key={pokemon.id} />
-            );
-          })}
-        </div>
-      </div>
-    );
+  if (!loadingFinished) {
+    return <Loading />;
   }
 
-  return <Loading />;
+  return (
+    <div
+      style={{
+        textAlign: "center",
+      }}
+    >
+      <SearchBar />
+      <PageNavigation>
+        <PrevPageButton onClick={decreaseOffset}>
+          <div>&lt;&nbsp;</div>
+          <div>Prev</div>
+        </PrevPageButton>
+
+        <div>
+          {offset + 1} -{" "}
+          {limit + offset >= POKEDEX_MAX_SIZE
+            ? POKEDEX_MAX_SIZE
+            : limit + offset}
+        </div>
+
+        <NextPageButton onClick={increaseOffset}>
+          <div>Next</div>
+          <div>&nbsp;&gt;</div>
+        </NextPageButton>
+      </PageNavigation>
+
+      <PokemonListContainer>
+        {filteredPokeArr.map((pokemon) => {
+          return (
+            <PokemonTile data={pokemon} index={pokemon.id} key={pokemon.id} />
+          );
+        })}
+      </PokemonListContainer>
+    </div>
+  );
 };
 
 export default PokemonList;

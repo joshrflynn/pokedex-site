@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
-import "./Loading.css";
 import { PokemonContext } from "../../context/pokemon.context";
 import { POKEDEX_MAX_SIZE } from "../../utils/utils";
+import { LoadingContainer, LoadingText, PokeballGif } from "./Loading.styles";
 
 const Loading = () => {
-  // const [displayText, setDisplayText] = useState("");
   const { updateLoadingFinished, pokeArr } = useContext(PokemonContext);
   const [loading, setLoading] = useState(pokeArr.length);
 
@@ -17,10 +16,10 @@ const Loading = () => {
   }, [pokeArr]);
 
   return (
-    <div className="loading">
-      <img src="pokeball.gif" alt="" className="gif" />
-      <div className="loading-text">{loading} / 905 Pokémon Loaded</div>
-    </div>
+    <LoadingContainer>
+      <PokeballGif src="pokeball.gif" alt="" />
+      <LoadingText>{loading} / 905 Pokémon Loaded</LoadingText>
+    </LoadingContainer>
   );
 };
 

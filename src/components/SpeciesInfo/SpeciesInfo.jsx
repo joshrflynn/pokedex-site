@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
+import { SpeciesInfoContainer, Genera, FlavorText } from "./SpeciesInfo.styles";
 import axios from "axios";
 
-import "./FlavorText.css";
-
-const FlavorText = ({ url }) => {
+const SpeciesInfo = ({ url }) => {
   const [speciesData, setSpeciesData] = useState(null);
 
   useEffect(() => {
@@ -18,25 +17,25 @@ const FlavorText = ({ url }) => {
   return (
     <>
       {speciesData !== null && (
-        <div>
-          <div className="flavor-text">
-            <div className="genera">
-              {
-                speciesData.genera.filter((generaElement) => {
-                  return generaElement.language.name === "en";
-                })[0].genus
-              }
-            </div>
+        <SpeciesInfoContainer>
+          <Genera>
+            {
+              speciesData.genera.filter((generaElement) => {
+                return generaElement.language.name === "en";
+              })[0].genus
+            }
+          </Genera>
+          <FlavorText>
             {
               speciesData.flavor_text_entries.filter((textElement) => {
                 return textElement.language.name === "en";
               })[0].flavor_text
             }
-          </div>
-        </div>
+          </FlavorText>
+        </SpeciesInfoContainer>
       )}
     </>
   );
 };
 
-export default FlavorText;
+export default SpeciesInfo;

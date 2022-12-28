@@ -1,9 +1,14 @@
 import { useContext, useState } from "react";
 import { PokemonContext } from "../../context/pokemon.context";
 import PokemonModal from "../PokemonModal/PokemonModal";
-import "./PokemonTile.css";
 import { TYPE_COLORS } from "../../utils/typeColors";
 import { capitalizeFirstLetter } from "../../utils/utils";
+import {
+  DexNumber,
+  PokemonTileContainer,
+  PokemonTileName,
+  PokemonTileSprite,
+} from "./PokemonTile.styles";
 
 const PokemonTile = ({ index, data }) => {
   const { modalIsSelected, updateModalSelection } = useContext(PokemonContext);
@@ -39,20 +44,19 @@ const PokemonTile = ({ index, data }) => {
   return (
     <>
       {style && (
-        <div className={`pokemon-tile`} style={style} onClick={clickHandler}>
-          <span className="dex-num">{data.id}</span>
-          <img
+        <PokemonTileContainer style={style} onClick={clickHandler}>
+          <DexNumber>{data.id}</DexNumber>
+          <PokemonTileSprite
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index}.png`}
             alt={`${data.species.name} sprite`}
-            className="pokemon-image"
             draggable={false}
           />
-          <div className="pokemon-name">
+          <PokemonTileName>
             {capitalizeFirstLetter(data.species.name)}
-          </div>
+          </PokemonTileName>
 
           <PokemonModal show={show} setShow={setShow} data={data} />
-        </div>
+        </PokemonTileContainer>
       )}
     </>
   );

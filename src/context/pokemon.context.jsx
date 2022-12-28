@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { POKEDEX_MAX_SIZE } from "../utils/utils";
 
 export const PokemonContext = createContext();
 
@@ -7,8 +8,8 @@ export const PokemonProvider = ({ children }) => {
   const [pokeArr, setPokeArr] = useState([]);
   const [filteredPokeArr, setFilteredPokeArr] = useState([]);
   const [modalIsSelected, setmodalIsSelected] = useState(false);
-  const [limit, setLimit] = useState(80);
   const [offset, setOffset] = useState(0);
+  const limit = 80;
 
   useEffect(() => {
     setTimeout(() => {
@@ -16,11 +17,21 @@ export const PokemonProvider = ({ children }) => {
     }, 50);
   }, [offset]);
 
-  const updateLimit = (newState) => {
-    setLimit(newState);
-  };
-  const updateOffset = (newState) => {
-    setOffset(newState);
+  const updateOffset = (newState, method) => {
+    switch (method) {
+      case "increase":
+        if (offset + limit <= POKEDEX_MAX_SIZE) {
+          setOffset(newState);
+        }
+        break;
+      case "decrease":
+        if (newState >= 0) {
+          setOffset(newState);
+        }
+        break;
+      default:
+        break;
+    }
   };
 
   const updateFilteredPokeArr = (newState) => {
@@ -51,7 +62,6 @@ export const PokemonProvider = ({ children }) => {
     limit,
     offset,
     updateOffset,
-    updateLimit,
   };
 
   return (

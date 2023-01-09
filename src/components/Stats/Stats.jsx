@@ -1,17 +1,23 @@
-import { BaseStatBar, StatLine } from "./Stats.styles";
-import "./Stats.css";
+import {
+  BaseStat,
+  BaseStatBar,
+  BaseStatTotal,
+  StatLine,
+  StatName,
+  StatContainer,
+} from "./Stats.styles";
 
 const Stats = ({ stats, name }) => {
   const statArr = ["HP", "Atk", "Def", "SpA", "SpD", "Spd"];
   let baseStatTotal = 0;
   return (
-    <>
+    <StatContainer>
       {stats.map((stat, index) => {
         baseStatTotal += stat.base_stat;
         return (
           <StatLine key={`${name}-${statArr[index]}`}>
-            <div className="stat-name">{statArr[index]}:</div>
-            <div className="base-stat">{stat.base_stat}</div>
+            <StatName>{statArr[index]}:</StatName>
+            <BaseStat>{stat.base_stat}</BaseStat>
 
             <BaseStatBar
               style={{
@@ -23,10 +29,10 @@ const Stats = ({ stats, name }) => {
           </StatLine>
         );
       })}
-      <div className="base-stat-total-container">
-        Base Stat Total: <div className="base-stat-total">{baseStatTotal}</div>
-      </div>
-    </>
+      <BaseStatTotal>
+        Base Stat Total: <div>{baseStatTotal}</div>
+      </BaseStatTotal>
+    </StatContainer>
   );
 };
 

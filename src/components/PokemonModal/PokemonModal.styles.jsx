@@ -1,4 +1,6 @@
-.modal-container {
+import styled from "styled-components";
+
+export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,19 +10,19 @@
     left 0.4s;
   will-change: z-index, opacity, width, height, top, left;
   background: var(--bgColor);
-}
+`;
 
-.modal {
+export const Modal = styled.div`
   width: 95%;
   max-width: 570px;
   height: 80%;
   margin-top: 20px;
   border: 1px solid var(--darkColor);
-  background-color: white;
   overflow-y: scroll;
-}
+  background-color: #f3f3f3;
+`;
 
-.modal-header {
+export const ModalHeader = styled.div`
   background-color: var(--darkColor);
   color: white;
   height: 55px;
@@ -29,13 +31,9 @@
   justify-content: center;
   align-items: center;
   letter-spacing: -1px;
-}
+`;
 
-.classification {
-  margin-bottom: 10px;
-}
-
-.type {
+export const Type = styled.div`
   width: 80px;
   height: fit-content;
   text-align: center;
@@ -44,54 +42,40 @@
   color: white;
   border: 1px solid var(--darkColor);
   margin: 10px 5px 0 5px;
-}
-.modal-content-1 {
+`;
+
+export const TypeContainer = styled.div`
+  display: flex;
+  margin-top: 4px;
+`;
+
+export const ModalContentContainer = styled.div`
   margin-top: 15px;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-}
-
-.ability-header {
-  text-decoration: underline;
-  margin-bottom: 5px;
-}
-
-.modal-subcontent-1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.sprite-container {
-  display: flex;
-  flex-direction: row;
-}
-
-#front-sprite {
-  width: 160px;
-  border: 1px solid black;
-  box-shadow: 1px 1px 10px black;
-}
-
-.type-container {
-  display: flex;
-  margin-top: 4px;
-}
-
-.ability-container {
-  text-align: center;
-}
-
-.stat-container {
-  width: 35%;
-}
-
-@media (max-width: 560px) {
-  .modal-content-1 {
+  @media (max-width: 560px) {
     flex-direction: column;
     height: 88%;
   }
-}
+`;
+
+export const SpriteTypeFlexContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const SpriteContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const FrontSprite = styled.img`
+  width: 160px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 10px black;
+  background-color: white;
+`;

@@ -47,7 +47,7 @@ const PokemonTile = ({ index, data }) => {
         <PokemonTileContainer style={style} onClick={clickHandler}>
           <DexNumber>{data.id}</DexNumber>
           <PokemonTileSprite
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index}.png`}
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${index}.png`}
             alt={`${data.species.name} sprite`}
             draggable={false}
           />

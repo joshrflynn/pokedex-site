@@ -13,9 +13,7 @@ export const PokemonTileContainer = styled.div`
   border: 1px solid black;
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
-
   position: relative;
-
   @media (max-width: 450px) {
     width: 90px;
     height: 90px;
@@ -40,7 +38,6 @@ export const DexNumber = styled.span`
 export const PokemonTileSprite = styled.img`
   width: 120px;
   height: 120px;
-  transform: translateY(10px);
   transition: all 0.3s ease-in-out;
 
   @media (max-width: 450px) {

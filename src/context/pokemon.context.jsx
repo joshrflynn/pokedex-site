@@ -13,8 +13,8 @@ export const PokemonProvider = ({ children }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 50);
+      window.scrollTo(0, 0, "smooth");
+    }, 10);
   }, [offset]);
 
   const updateOffset = (newState, method) => {

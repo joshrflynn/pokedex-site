@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { PokemonContext } from "../../context/pokemon.context";
-import "./SearchBar.css";
+import { SearchBarContainer, SearchInput } from "./SearchBar.styles";
 
 const SearchBar = () => {
   const { pokeArr, updateFilteredPokeArr, limit, offset } =
@@ -20,13 +20,13 @@ const SearchBar = () => {
   };
 
   return (
-    <div className={"search-bar"}>
-      <input
+    <SearchBarContainer>
+      <SearchInput
         type="text"
         onChange={searchTextChangeHandler}
         placeholder={"Search Pokémon name"}
       />
-    </div>
+    </SearchBarContainer>
   );
 };
 

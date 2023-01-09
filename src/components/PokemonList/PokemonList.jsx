@@ -34,7 +34,7 @@ const PokemonList = () => {
     >
       <SearchBar />
       <PageNavigation>
-        <PrevPageButton onClick={decreaseOffset}>
+        <PrevPageButton onClick={decreaseOffset} id="prevPage">
           <div>&lt;&nbsp;</div>
           <div>Prev</div>
         </PrevPageButton>
@@ -46,7 +46,7 @@ const PokemonList = () => {
             : limit + offset}
         </div>
 
-        <NextPageButton onClick={increaseOffset}>
+        <NextPageButton onClick={increaseOffset} id="nextPage">
           <div>Next</div>
           <div>&nbsp;&gt;</div>
         </NextPageButton>

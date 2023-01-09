@@ -11,7 +11,7 @@ export const Navbar = styled.div`
   position: sticky;
   top: 0;
   left: 0;
-  box-shadow: 0px 2px 5px;
+  box-shadow: 0px 2px 20px;
   z-index: 1;
 `;
 
